@@ -11,9 +11,9 @@ function App() {
       <Menu />
 
       <BannerMain
-        videoTitle={dadosIniciais.categorias[0].videos[0].titulo}
+        videoTitle={dadosIniciais.categorias[2].videos[2].titulo}
         url={dadosIniciais.categorias[2].videos[2].url}
-        videoDescription={"O que é Front-end? Trabalhando na área"}
+        videoDescription={"MELHOR FORMA DE APRENDER PYTHON (Google Colab Notebook)"}
       />
 
       <Carousel
