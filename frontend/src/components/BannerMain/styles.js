@@ -114,8 +114,8 @@ export const WatchButton = styled.button`
   display: inline-block;
   border: 1px solid transparent;
   color: var(--grayLight);
-  background:  rgb(101, 81, 81);
-  border-color:  rgb(101, 81, 81);
+  background:  rgba(170, 45, 45, 0.863);
+  border-color:  rgba(170, 45, 45, 0.863);
   transition: opacity .3s;
   display: none;
   margin: 0 auto;

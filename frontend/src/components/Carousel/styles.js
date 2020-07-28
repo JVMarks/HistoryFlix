@@ -48,19 +48,6 @@ export const VideoCardList = styled.ul`
     margin-right: 16px;
   }
 
-    /* width */
-::-webkit-scrollbar {
-  width: 3px;
-  border-radius: 4px;
-  background-color: rgb(101, 81, 81) ;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: rgba(170, 45, 45, 0.863);
-  border-radius: 4px;
-}
-
 `;
 
 export const VideoCardGroupContainer = styled.section`
@@ -70,3 +57,16 @@ export const VideoCardGroupContainer = styled.section`
   margin-bottom: 16px;
 
 `;
+
+/* width */
+    //::-webkit-scrollbar {
+    //width: 3px;
+    //border-radius: 4px;
+    //background-color: rgb(101, 81, 81) ;
+   //}
+
+/* Handle */
+    //::-webkit-scrollbar-thumb {
+    //background: rgba(170, 45, 45, 0.863);
+    //border-radius: 4px;
+   //}
