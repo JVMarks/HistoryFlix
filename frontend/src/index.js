@@ -7,7 +7,26 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import CadastroVideo from './pages/cadastro/video';
 import CadstroCategoria from './pages/cadastro/categoria';
 
-const Pagina404 = () => (<div>Página 404</div>)
+const Pagina404 = () => (
+  <div
+    style={{
+      display:'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexDirection: 'column',
+    }}
+  >
+    <h2>¯\_(ツ)_/¯ Ops, Deu pau na maquina ¯\_(ツ)_/¯</h2>
+       <p>
+         <a href="/"><strong>Você pode jogar ou voltar para HOME</strong></a>
+       </p>
+       <iframe title="Flappy Bird Game" 
+       src="https://flappy-bird-blue.vercel.app/" 
+       width="370"
+       height="550"
+       />
+  </div>
+)
 
 
 //modo para deixar a pagina one pagine
