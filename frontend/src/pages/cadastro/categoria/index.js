@@ -33,9 +33,10 @@ const ButtonStyle = styled.a`
     color: rgba(170, 45, 45, 0.863);
     border: rgba(170, 45, 45, 0.863);
   }
+ 
 `;
 
-const LiStyles = styled.li`
+const LiStyles = styled.ul`
    font-family: 'Roboto', sans-serif;
    font-size: 18px;
    list-style-type: none;
@@ -149,8 +150,8 @@ function CadastroCategoria() {
         </Button>
       </form>
 
-        <ul>
       <LiStyles>
+        <ul>
           {categorias.map((categoria, indice) => {
             return (
               <li key={`${categoria}${indice}`}>
@@ -158,8 +159,9 @@ function CadastroCategoria() {
               </li>
             )
           })}
-      </LiStyles>
+      
         </ul>
+        </LiStyles>
 
       <ButtonStyle as={Link} to="/">
         Voltar Para HOME
