@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
+import useForm from '../../../hooks/useForm';
 
 import styled from 'styled-components';
 
@@ -14,10 +15,10 @@ const ButtonStyle = styled.a`
   cursor: pointer;
 
   position: absolute;
-  bottom: 5px;
-  right: 16px;
+  bottom: 15px;
+  right: 70px;
 
-  padding: 8px 8px;
+  padding: 5px 5px;
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
@@ -27,19 +28,18 @@ const ButtonStyle = styled.a`
   display: inline-block;
   transition: opacity .3s;
 
+  @media (max-width: 800px) {
+    position:  static;
+    margin-top: 10px;
+   margin-bottom: 10px;
+  }
+
   &:hover,
   &:focus {
     opacity: .5;
-    color: rgba(170, 45, 45, 0.863);
-    border: rgba(170, 45, 45, 0.863);
+    color: #daa520;
+    border: #daa520;
   }
- 
-`;
-
-const LiStyles = styled.ul`
-   font-family: 'Roboto', sans-serif;
-   font-size: 18px;
-   list-style-type: none;
 `;
 
 function CadastroCategoria() {
@@ -48,24 +48,10 @@ function CadastroCategoria() {
     descricao: '',
     cor: '',
   }
+
+  const { handleChange, values, clearForm } = useForm(valoresIniciais);
+
   const [categorias, setCategorias] = useState([]);
-  const [values, setValues] = useState(valoresIniciais);
-
-
-  function setValue(chave, valor) {
-    // chave: nome, descricao, bla, bli
-    setValues({
-      ...values,
-      [chave]: valor, // nome: 'valor'
-    })
-  }
-
-  function handleChange(infosDoEvento) {
-    setValue(
-      infosDoEvento.target.getAttribute('name'),
-      infosDoEvento.target.value
-    );
-  }
 
   // ============
 
@@ -96,7 +82,7 @@ function CadastroCategoria() {
           values
         ]);
 
-        setValues(valoresIniciais)
+        clearForm();
       }}>
 
         <FormField
@@ -150,18 +136,15 @@ function CadastroCategoria() {
         </Button>
       </form>
 
-      <LiStyles>
-        <ul>
-          {categorias.map((categoria, indice) => {
-            return (
-              <li key={`${categoria}${indice}`}>
-                {categoria.titulo}
-              </li>
-            )
-          })}
-      
-        </ul>
-        </LiStyles>
+      <ul>
+        {categorias.map((categoria, indice) => {
+          return (
+            <li key={`${categoria}${indice}`}>
+              {categoria.titulo}
+            </li>
+          )
+        })}
+      </ul>
 
       <ButtonStyle as={Link} to="/">
         Voltar Para HOME

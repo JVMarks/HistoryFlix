@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PageDefault from '../../../components/PageDefault';
-import { Link } from 'react-router-dom';
-
+import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import useForm from '../../../hooks/useForm';
+import FormField from '../../../components/FormField';
+import videosRepository from '../../../repositories/videos';
+import categoriasRepository from '../../../repositories/categorias';
+import Button from '../../../components/Button';
 
 const ButtonStyle = styled.a`
 
@@ -13,9 +17,9 @@ const ButtonStyle = styled.a`
 
   position: absolute;
   bottom: 170px;
-  right: 80px;
+  right: 70px;
 
-  padding: 8px 8px;
+  padding: 5px 5px;
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
@@ -25,25 +29,94 @@ const ButtonStyle = styled.a`
   display: inline-block;
   transition: opacity .3s;
 
+  
+  @media (max-width: 800px) {
+    position:  static;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
   &:hover,
   &:focus {
     opacity: .5;
-    color: rgba(170, 45, 45, 0.863);
-    border: rgba(170, 45, 45, 0.863);
+    color: #daa520;
+    border: #daa520;
   }
 `;
 
-function Cadstrovideo() {
+function CadastroVideo() {
+  const history = useHistory();
+  const [categorias, setCategorias] = useState([]);
+  const categoryTitles = categorias.map(({ titulo }) => titulo);
+  const { handleChange, values } = useForm({
+    titulo: '',
+    url: '',
+    categoria: '',
+  });
+
+  useEffect(() => {
+    categoriasRepository
+      .getAll()
+      .then((categoriasFromServer) => {
+        setCategorias(categoriasFromServer);
+      });
+  }, []);
+
   return (
     <PageDefault>
-      <h1>cadastro de Video</h1>
+      <h1>Cadastro de Video</h1>
+
+      <form onSubmit={(event) => {
+        event.preventDefault();
+        // alert('Video Cadastrado com sucesso!!!1!');
+
+        const categoriaEscolhida = categorias.find((categoria) => {
+          return categoria.titulo === values.categoria;
+        });
+
+        videosRepository.create({
+          titulo: values.titulo,
+          url: values.url,
+          categoriaId: categoriaEscolhida.id,
+        })
+          .then(() => {
+            console.log('Cadastrou com sucesso!');
+            history.push('/');
+          });
+      }}
+      >
+        <FormField
+          label="Título do Vídeo"
+          name="titulo"
+          value={values.titulo}
+          onChange={handleChange}
+        />
+
+        <FormField
+          label="URL"
+          name="url"
+          value={values.url}
+          onChange={handleChange}
+        />
+
+        <FormField
+          label="Categoria"
+          name="categoria"
+          value={values.categoria}
+          onChange={handleChange}
+          suggestions={categoryTitles}
+        />
+
+        <Button type="submit">
+          Cadastrar
+        </Button>
+      </form>
 
       <ButtonStyle as={Link} to="/cadastro/categoria">
         Cadastrar Categoria
       </ButtonStyle>
-
     </PageDefault>
   )
 }
 
-export default Cadstrovideo;
+export default CadastroVideo;

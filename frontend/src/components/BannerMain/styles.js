@@ -66,7 +66,7 @@ ContentAreaContainer.Title = styled.h2`
 `;
 
 export const BannerMainContainer = styled.section`
-  height: 80vh;
+  height: 95vh;
   position: relative;
   color: #fff;
   background-image: ${({ backgroundImage }) => `url(${backgroundImage})`}; 
@@ -114,8 +114,8 @@ export const WatchButton = styled.button`
   display: inline-block;
   border: 1px solid transparent;
   color: var(--grayLight);
-  background:  rgba(170, 45, 45, 0.863);
-  border-color:  rgba(170, 45, 45, 0.863);
+  background:  #daa520;
+  border-color:  #daa520;
   transition: opacity .3s;
   display: none;
   margin: 0 auto;

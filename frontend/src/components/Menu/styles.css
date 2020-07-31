@@ -24,7 +24,7 @@
   padding-right: 5%;
 
   background: var(--black);
-  border-bottom: 2px solid rgba(170, 45, 45, 0.863);
+  border-bottom: 2px solid #daa520;
 }
 body {
   --bodyPaddingTop: 94px;
@@ -62,12 +62,12 @@ body {
 }
 
 @media (max-width: 800px) {
-  a.ButtonLink {
+  a.ButtonLink{
     position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--primary);
+    background: #daa520;
     border-radius: 0;
     border: 0;
     text-align: center;

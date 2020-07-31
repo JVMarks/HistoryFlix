@@ -4,7 +4,7 @@
 }
 
 :root {
-  --primary: rgba(170, 45, 45, 0.863);
+  --primary: #daa520;
   --black: #000000;
   --blackLighter: #9E9E9E;
   --grayLight: #F5F5F5;
@@ -35,9 +35,9 @@ a {
   background-color: rgb(101, 81, 81);
 }
 
-/* Handle */
+/* Handle rgba(170, 45, 45, 0.863) */
 ::-webkit-scrollbar-thumb {
   /*background: #007dfc;*/
-  background: rgba(170, 45, 45, 0.863);
+  background: #daa520;
   border-radius: 5px;
 }
