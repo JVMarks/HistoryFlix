@@ -49,6 +49,12 @@
 </ul>
 <p>Depois que o merge da sua pull request for feito, você pode deletar a sua branch.</p>
 <hr>
-<p>Feito junto com Alura <g-emoji class="g-emoji" alias="wave" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44b.png">👋</g-emoji> <a href="https://discord.com/channels/733487952071753788/733487952516218942" rel="nofollow">Entre na nossa comunidade!</a></p>
+<h2>📝 License</h2>
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+Made with 💜 by JVMarks 👋 [See my linkedin](https://www.linkedin.com/in/joao-victor-marks/) 
 </article>
       </div>
